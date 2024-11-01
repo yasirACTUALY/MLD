@@ -159,20 +159,20 @@ thirdOrderFeatureTest = thirdOrder(AllFeaturesTest)
 thirdOrderFeatureTest = np.array(thirdOrderFeatureTest).astype('float')
 
 
-# # plot the wlin
-# wLin = linearReg(twoFeatures, AllY)
-# wLinPok = pocket(twoFeatures, AllY, wLin)
-# print("Ein for Pocket LR: {:.4f}% and Eout for Pocket LR: {:.4f}%".format((1-Eval(twoFeatures, wLinPok, AllY))*100, (1-Eval(AllFeaturesTest, wLinPok, AllYTest))*100))
-# plot(wLinPok, thirdOrderFeatures, fives, 'wLinPocket', 'Logistic Regression With Pocket')
+# plot the wlin
+wLin = linearReg(twoFeatures, AllY)
+wLinPok = pocket(twoFeatures, AllY, wLin)
+print("Ein for Pocket LR: {:.4f}% and Eout for Pocket LR: {:.4f}%".format((1-Eval(twoFeatures, wLinPok, AllY))*100, (1-Eval(AllFeaturesTest, wLinPok, AllYTest))*100))
+plot(wLinPok, thirdOrderFeatures, fives, 'wLinPocket', 'Logistic Regression With Pocket')
 
-# # plot the wLRA
-# w=LogisticRegressionAlgorithm(twoFeatures, AllY)
-# print("Ein for LR with Gradient descent: {:.4f}% and Eout for LR with Gradient descent: {:.4f}%".format((1-Eval(twoFeatures, w, AllY))*100, (1-Eval(AllFeaturesTest, w, AllYTest))*100))
-# plot(w, thirdOrderFeatures, fives, 'wLRA', 'Logistic Regression with Gradient Descent')
+# plot the wLRA
+w=LogisticRegressionAlgorithm(twoFeatures, AllY)
+print("Ein for LR with Gradient descent: {:.4f}% and Eout for LR with Gradient descent: {:.4f}%".format((1-Eval(twoFeatures, w, AllY))*100, (1-Eval(AllFeaturesTest, w, AllYTest))*100))
+plot(w, thirdOrderFeatures, fives, 'wLRA', 'Logistic Regression with Gradient Descent')
 
-# wSt = StochasticLogisticRegressionAlgorithm(twoFeatures, AllY)
-# print("Ein for Stochastic LR: {:.4f}% and Eout for Stochastic LR: {:.4f}%".format((1-Eval(twoFeatures, wSt, AllY))*100, (1-Eval(AllFeaturesTest, wSt, AllYTest))*100))
-# plot(wSt, thirdOrderFeatures, fives, 'wSt', 'Stochastic Logistic Regression')
+wSt = StochasticLogisticRegressionAlgorithm(twoFeatures, AllY)
+print("Ein for Stochastic LR: {:.4f}% and Eout for Stochastic LR: {:.4f}%".format((1-Eval(twoFeatures, wSt, AllY))*100, (1-Eval(AllFeaturesTest, wSt, AllYTest))*100))
+plot(wSt, thirdOrderFeatures, fives, 'wSt', 'Stochastic Logistic Regression')
 
 
 
@@ -212,17 +212,17 @@ x_min, x_max = X_raw[:, 1].min() - .5, X_raw[:, 1].max() + .5
 y_min, y_max = X_raw[:, 2].min() - .5, X_raw[:, 2].max() + .5
 
 
-# plot the wlin
+# # plot the wlin
 # wLin = linearReg(thirdOrderFeatures, AllY)
 # wLinPok = pocket(thirdOrderFeatures, AllY, wLin)
 # print("Ein for Pocket LR: {:.4f}%".format((1-Eval(X, wLinPok, Y))*100))
 # print("Etest for Pocket LR: {:.4f}%".format((1-Eval(thirdOrderFeatureTest, wLinPok, AllYTest))*100))
 # plot_poly(X_raw, Y, weights=wLinPok, initial=[x_min, y_min], final=[x_max, y_max], num=60)
 
-w=LogisticRegressionAlgorithm(X, AllY,0.5)
-print("Ein for LR with Gradient descent: {:.4f}%".format((1-Eval(X, w, Y))*100))
-print("Etest for LR with Gradient descent: {:.4f}%".format((1-Eval(thirdOrderFeatureTest, w, AllYTest))*100))
-plot_poly(X_raw, Y, weights=w, initial=[x_min, y_min], final=[x_max, y_max], num=60)
+# w=LogisticRegressionAlgorithm(X, AllY,0.5)
+# print("Ein for LR with Gradient descent: {:.4f}%".format((1-Eval(X, w, Y))*100))
+# print("Etest for LR with Gradient descent: {:.4f}%".format((1-Eval(thirdOrderFeatureTest, w, AllYTest))*100))
+# plot_poly(X_raw, Y, weights=w, initial=[x_min, y_min], final=[x_max, y_max], num=60)
 
 # wSt = StochasticLogisticRegressionAlgorithm(thirdOrderFeatures, AllY, 1)
 # print("Ein for Stochastic LR: {:.4f}%".format((1-Eval(X, wSt, Y))*100))
